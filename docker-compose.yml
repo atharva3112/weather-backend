@@ -1,0 +1,15 @@
+services:
+  server:
+    image: "swiftlang/swift:nightly-focal"
+    volumes:
+      - C:/Users/athar/Documents/GradStuff/CS561:/code
+    environment:
+      - USER=athar
+   
+  client:
+    image: "rust:1.58"
+    volumes:
+      - C:/Users/athar/Documents/GradStuff/CS561:/code
+    environment:
+      - USER=athar
+    
