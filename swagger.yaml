@@ -1,0 +1,106 @@
+swagger: "2.0"
+info:
+  description: "A swagger doc for these three endpoints:
+  
+`GET /v1/weather` —should mock OpenWeather’s 
+
+`GET /data/2.5/weather` endpoint
+
+`GET /v1/hello`  —should return a greeting of your choice."
+  version: "1.0.0"
+  title: "Assignment 4"
+  contact:
+    email: "nallagop@oregonstate.edu"
+  license:
+    name: "myLicense"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:3000"
+basePath: "/v1"
+tags:
+- name: "Pavan"
+  description: "about me"
+  externalDocs:
+    description: "Find out more"
+    url: "https://github.com/pavan3008"
+schemes:
+- "http"
+paths:
+  /weather:      
+    get:
+      tags:
+      - "user"
+      summary: "Current Temperature"
+      description: "Know temperature anywhere"
+      operationId: "getWeather"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Name"
+        in: "query" 
+        description: "Enter the name of City"
+        required: true
+        type: "string"
+      - name: "API Key"  
+        in: "query"
+        description: "Enter your API key"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Success"
+          schema:
+            type: "string"
+        "400":
+          description: "Invalid API Key"
+  /hello:
+    get:
+      tags:
+      - "user"
+      summary: "return a random greeting"
+      description: ""
+      operationId: "get_hello"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "You're welcome"
+        400:
+          description: "Bad request"
+  
+  /auth:
+    post:
+      tags:
+      - "user"
+      summary: "Get your token"
+      description: ""
+      operationId: "userlogin"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Details"
+        description: "Give your username and password"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        200:
+          description: "Token successfully generated"
+        400:
+          description: "Bad request"
+        401:
+          description: "You're not authorized"
+        
+          
+definitions:
+  User:
+    type: "object"
+    properties:
+      username:
+        type: "string"
+      password:
+        type: "string"
+        description: "Get Token"
+    xml:
+      name: "User"
+  
