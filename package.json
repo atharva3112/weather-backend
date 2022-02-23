@@ -1,7 +1,17 @@
 {
+  "name": "assignment5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Atharva",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.17.2",
-    "swagger-jsdoc": "^6.0.0",
-    "swagger-ui-express": "^4.3.0"
+    "jsonwebtoken": "^8.5.1",
+    "swagger-ui-express": "^4.3.0",
+    "yamljs": "^0.3.0"
   }
 }
